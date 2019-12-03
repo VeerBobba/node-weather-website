@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode');
  const forecast = require('./utils/forecast');
 
 const app = express()
+const port = process.env.PORT || 3000;
 // DEfine paths for Express Config
 const publicPath =path.join(__dirname,'../public');
 const viewsPath = path.join(__dirname,'../templates/views');
@@ -16,6 +17,7 @@ hbs.registerPartials(partialsPath)
 
 //Setup the public folder path
 app.use(express.static(publicPath))
+
 
 app.get('',(req,res)=>{
     res.render('index',{title:"Weather App",name:"Veeranna Home"})
@@ -80,6 +82,6 @@ app.get('*',(req,res)=>{
     res.render('404Page',{title:'404',message:'Page not Found',name:'Veeranna Page Error'})
 })
 
-app.listen(3000,()=>{
-    console.log('Sever is up on 3000')
+app.listen(port,()=>{
+    console.log('Sever is up on '+port)
 })

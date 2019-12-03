@@ -11,7 +11,7 @@ const forecast = (longitude, lattitude, callback) =>{
             callback('Location is not correct',undefined)
         }else{
             callback(undefined,{
-                forecast: 'It is currently '+body.currently.temperature +' degrees out. There is a '+body.currently.precipProbability + '% chance of rain and '+body.currently.summary            
+                forecast: 'Daily High Temp:' +body.daily.data[0].temperatureHigh+ ' and Daily Low Temp:'+body.daily.data[0].temperatureLow+ ' and It is currently '+body.currently.temperature +' degrees out. There is a '+body.currently.precipProbability + '% chance of rain and '+body.currently.summary            
             })
 
         }
